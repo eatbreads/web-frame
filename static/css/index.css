@@ -1,0 +1,14 @@
+.title {
+    font-size: 36px;
+    text-align: center;
+    font-size: 64px;
+}
+
+.content {
+    text-align: center;
+    font-size: 36px;
+}
+
+#upload-form {
+    text-align: center;
+}

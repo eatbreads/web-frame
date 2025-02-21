@@ -1,0 +1,27 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Test Page</title>  
+</head>  
+<body>  
+    <button onclick="on()">Click Me</button>  
+    <script>  
+        function times(f, n) {  
+            for (let i = 0; i < n; i++) {  
+                f(i);  
+            }  
+        }  
+  
+        let a = (index) => {  
+            let s = index * (index - 1);  
+            console.log(s);  
+        };  
+  
+        function on() {  
+            times(a, 4);  
+        }  
+    </script>  
+</body>  
+</html>

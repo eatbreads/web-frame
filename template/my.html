@@ -1,0 +1,61 @@
+<!DOCTYPE html>    
+<html lang="en">    
+<head>    
+    <meta charset="UTF-8">    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <title>Button Links</title>    
+    <script>    
+        function sendLink(link) {    
+            // 发送POST请求到服务器，但这里不等待响应  
+            fetch('your_server_endpoint', {    
+                method: 'POST',    
+                headers: {    
+                    'Content-Type': 'application/json',    
+                },    
+                body: JSON.stringify({ link: link })    
+            })    
+            .then(response => {  
+                // 这里只处理可能的错误，不依赖于响应数据  
+                if (!response.ok) {  
+                    throw new Error('Network response was not ok');  
+                }  
+                // 通常不需要在这里做更多事情，因为我们要立即跳转  
+            })    
+            .catch((error) => {    
+                console.error('Error sending data to server:', error);  
+                // 可以在这里添加一些错误处理逻辑，比如显示错误消息  
+                // 但由于我们要跳转，所以这里可能不需要做太多  
+            });    
+  
+            // 不等待服务器响应，立即跳转  
+            window.location.href = link;  
+        }    
+    
+        // 为每个按钮添加点击事件监听器    
+        document.addEventListener('DOMContentLoaded', function() {    
+            const buttons = document.querySelectorAll('button');    
+            buttons.forEach((button, index) => {    
+                button.onclick = function() {    
+                    // 获取按钮的data-link属性  
+                    const link = this.getAttribute('data-link');    
+                    sendLink(link);    
+                };    
+            });    
+        });    
+    </script>    
+</head>    
+<body>    
+    <!-- 假设有10个按钮，每个按钮都有一个data-link属性 -->    
+    <!-- <button data-link="https://yiyan.baidu.com">文心一眼</button>    
+    <button data-link="https://www.markji.com/deck/editor/6635fe378219ac791ed25777">墨墨记忆卡</button>    
+    <button data-link="https://matrix.sysu.edu.cn/login">matrix</button>    
+    ... 其他7个按钮 ...   
+    <button data-link="https://example.com/10">没用的按钮</button>     -->
+    <button onclick="fun()">click me</button>
+</body>    
+<script>
+    function fun() {
+        console.log("Hello, world!")
+    }
+</script>
+</html>
